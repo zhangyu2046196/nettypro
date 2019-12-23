@@ -1,0 +1,31 @@
+syntax ="proto3"; //proto版本
+option optimize_for = SPEED; // 加快解析
+option java_package="com.youyuan.netty.codec2";  //生成文件的目录
+option java_outer_classname="MyDataInfo";  //生成的外部类名字及文件名
+
+message MyMessage{ //定义message管理下面的两个message
+
+    enum DataType{  //定义枚举  枚举从0开始
+        studentType=0;
+        workerType=1;
+    }
+
+    DataType dataType=1;  //定义MyMessage中的属性dataType
+
+    oneof dataBody{
+        Student student=2;  //定义MyMessage中的属性student
+        Worker worker=3;  //定义MyMessage中的属性worker
+    }
+
+}
+
+
+message Student{  //定义内部类名字
+    int32 id=1;  //类型是int32-->java的int  1代表属性序号
+    string name=2;  //类型是string-->java的String  2代表属性序号
+}
+
+message Worker{  //定义内部类名字
+    string name=1;  //类型sring-->java的String  1代表属性序号
+    int32 age=2;  //类型int32-->java的int  2代表属性序号
+}

@@ -1,0 +1,6 @@
+syntax = "proto3";  //版本
+option java_outer_classname = "StuduentPOJO";  //生成的外部类名(生成的文件名)
+message Student{   //Student内部类名，也是进行网络传输的文件名
+    int32 id=1;  //int32是protobuf的定义属性的语法  1代表属性的顺序号，这是第一个属性
+    string name=2;  //string是protobuf的定义属性的语法  2代表属性的顺序号，这是第二个属性
+}
